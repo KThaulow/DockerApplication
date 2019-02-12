@@ -16,6 +16,9 @@ namespace DockerConsoleApp
 			Console.WriteLine("Liv her. Du er for sej!");
 
 			Console.WriteLine("Kristian her. Tak!");
+
+			Console.WriteLine("Endnu en besked");
+
 		}
 	}
 }
