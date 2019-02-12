@@ -1,0 +1,34 @@
+GitHub PAT: *
+
+-----------------------------------------------------------------------------
+Create the ACR task. Remember that image name can not contain capital letters:
+
+
+ACR_NAME=KTContainerRegistry        			# The name of your Azure container registry
+GIT_USER=KThaulow      					# Your GitHub user account name
+GIT_PAT=* 	# The PAT you generated in the previous section
+
+
+az acr task create \
+    --registry $ACR_NAME \
+    --name TaskConsoleApplication \
+    --image consoleapplication:{{.Run.ID}} \
+    --context https://github.com/$GIT_USER/DockerApplication.git \
+    --branch master \
+    --file Dockerfile \
+    --git-access-token $GIT_PAT
+
+-----------------------------------------------------------------------------
+
+Build task:
+az acr task run --registry $ACR_NAME --name TaskConsoleApplication
+
+-----------------------------------------------------------------------------
+Delete a task:
+
+az acr task delete -n taskconsoleapplication -r KTContainerRegistry
+
+-----------------------------------------------------------------------------
+List tasks:
+
+az acr task list -r KTContainerRegistry
