@@ -19,6 +19,7 @@ namespace DockerConsoleApp
 
 			Console.WriteLine("Endnu en besked");
 
+			Console.WriteLine("Og igen");
 		}
 	}
 }
